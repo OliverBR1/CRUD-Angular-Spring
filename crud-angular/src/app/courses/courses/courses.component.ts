@@ -5,6 +5,7 @@ import { catchError, Observable, of } from 'rxjs';
 import { CoursesService } from '../services/courses.service';
 import { Course } from '../models/course';
 import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -15,13 +16,15 @@ import { MatDialog } from '@angular/material/dialog';
 export class CoursesComponent implements OnInit {
 
   courses$: Observable<Course[]>;
-  displayedColumns = ['name' , 'category'];
+  displayedColumns = ['name' , 'category', 'actions'];
 
   //coursesService: CoursesService;
 
   constructor(
     private coursesService: CoursesService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private router: Router,
+    private route : ActivatedRoute
     ) {
     // this.courses = [] estou inicializando o Course[], mas também pode ser inicializado igaul a linha 11;
     //this.coursesService = new CoursesService();
@@ -40,6 +43,12 @@ export class CoursesComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+  }
+
+  onAdd(){
+    this.router.navigate(['new'], {relativeTo:this.route}); // relativeTo pega o rota em que estou agora e só adiciona o 'new'
+  }
 
 }
