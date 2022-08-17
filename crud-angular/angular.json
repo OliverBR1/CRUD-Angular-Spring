@@ -8,6 +8,9 @@
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
         }
       },
       "root": "",
@@ -107,6 +110,6 @@
     }
   },
   "cli": {
-    "analytics": "0a5fbac5-de76-4d26-8f5d-c55e06ec57e6"
+    "analytics": "17a80d30-515f-459b-944d-5208af492728"
   }
 }

@@ -1,8 +1,8 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { delay, first, tap } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 import { Course } from '../models/course';
+import { delay, first, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -15,14 +15,18 @@ export class CoursesService {
 
   list() {
     return this.httpClient.get<Course[]>(this.API)
-    .pipe(
-      first(), // aqui ele pega a primeira resposta da lista e finaliza a operacao
-      delay(2000),
-      tap(courses => console.log(courses))
-    );
+      .pipe(
+        first(),
+        //delay(5000),
+        tap(courses => console.log(courses))
+      );
   }
 
-  save(record: Course){
+  loadById(id: string) {
+    return this.httpClient.get<Course>(`${this.API}/${id}`);
+  }
+
+  save(record: Partial<Course>) {
     return this.httpClient.post<Course>(this.API, record).pipe(first());
   }
 }
