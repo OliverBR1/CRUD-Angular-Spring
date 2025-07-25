@@ -1,6 +1,6 @@
 # CrudAngular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.6.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli).
 
 ## Development server
 
@@ -18,9 +18,9 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Updating this project to higher versions
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Run `ng update @angular/cli @angular/core @angular/cdk @angular/material @angular/youtube-player @angular-eslint/schematics --force` to execute the automated update using Angular CLI.
 
 ## Further help
 
